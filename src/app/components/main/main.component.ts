@@ -9,25 +9,20 @@ import {v4 as uuidv4} from 'uuid'
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  router: Router
-  constructor(private todoDB: TodoDatabase) { }
+
+  constructor(private todoDB: TodoDatabase, private router: Router) { }
+
+  result = []
 
   async ngOnInit(): Promise<void> {
-    const result = this.todoDB.getTodoSummary()
+    this.result = await this.todoDB.getTodoSummary()
+
+    console.info(this.result)
   }
 
-  async addTodo(){
-    const id = uuidv4().toString().substring(0,8)
-    // const todo = this.todoRef.todo;
-    // set the new id to the new todo
-    // todo.id = id;
-
-    // save this to the database
-    // await this.todoDb.addTodo(todo)
-
-    // navigate to /
-    this.router.navigate(['/'])
+  gotoDetail(id: string){
+    console.info (id)
+    this.router.navigate(['/todo', id]);
   }
-
 
 }

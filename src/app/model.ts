@@ -11,7 +11,7 @@ export interface task{
 export interface Todo{
     taskID: string;
     title: string;
-    tasks: task[],
+    tasks: task[];
 }
 
 export interface TodoSummary{

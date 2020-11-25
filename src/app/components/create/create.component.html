@@ -1,38 +1,4 @@
-<form action="" [formGroup] = "todoForm">
-
-    <div>Title</div>
-    <div>
-        <input type="text" placeholder = "enter title" size="40" formControlName="title">
-        <button (click) = "addTask()">Add Task</button>
-    </div>
-    <table>
-        <thead>
-            <tr>
-                <th>Description</th>
-                <th>Prority</th>
-            </tr>
-    
-        </thead>
-<!-- loop through the array of tasks     -->
-        <tbody formArrayName = "tasks">
-        <tr *ngFor = "let t of tasksArray.controls; let i = index" [formGroup] = "t"> 
-            <td>
-                <input type="text" placeholder ="sub task" size = "50" formControlName = "description">
-            </td>
-
-            <select name="" id="" formControlName = "priority">
-                <option value="0"> Low </option>
-                <option value="1"> Med </option>
-                <option value="2"> high </option>
-            </select>
-
-            <button (click) = deleteTask(i)>X</button>
-        </tr>
-
-        </tbody>
-    </table>
-
-</form>
+<app-todo #myTodo></app-todo>
 
 <button [routerLink] = "['/']">Back</button>
 <button (click) = addTodo()>Add Todo</button>

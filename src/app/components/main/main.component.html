@@ -6,8 +6,17 @@
 
 <hr>
 
-<div *ngFor = "let t of todos">
-    <h4 [routerLink] = "['/todo', t.id]"> 
-        {{t.title}}
-    </h4>
-</div>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Task ID</th>
+        <th scope="col">Title</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor = "let todo of result" (click) = "gotoDetail(todo.id)">
+        <td>{{todo.id}}</td>
+        <td>{{todo.title}}</td>
+      </tr>
+    </tbody>
+  </table>
